@@ -64,3 +64,14 @@ body {
     transition: transform 0.7s ease-out;
     backface-visibility: hidden;
 }
+
+.card-before {
+    background-color: #31f46c;
+    font-size: 2.8em;
+    font-weight: 600;
+}
+
+.card-after {
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+}
