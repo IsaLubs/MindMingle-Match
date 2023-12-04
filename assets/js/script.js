@@ -26,17 +26,14 @@ const items = [
     { name: "toucan", image: "toucan.png" },
 ];
 
-
-//Initial Time
+ //Initial Time
 let seconds = 0,
     minutes = 0;
 
 //Initial moves and win count
 let movesCount = 0,
     winCount = 0;
-
-
-//For timer
+ //For timer
 const timeGenerator = () => {
     seconds += 1;
     //minutes logic
@@ -49,15 +46,12 @@ const timeGenerator = () => {
     let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
     timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
 };
-
-//For calculating moves
+ //For calculating moves
 const movesCounter = () => {
     movesCount += 1;
     moves.innerHTML = `<span>Moves:</span>${movesCount}`;
 };
-
-
-//Pick random objects from the items array
+ //Pick random objects from the items array
 const generateRandom = (size = 4) => {
     //temporary array
     let tempArray = [...items];
@@ -73,4 +67,26 @@ const generateRandom = (size = 4) => {
         tempArray.splice(randomIndex, 1);
     }
     return cardValues;
-};
+ };
+const matrixGenerator = (cardValues, size = 4) => {
+    gameContainer.innerHTML = "";
+    cardValues = [...cardValues, ...cardValues];
+    //simple shuffle
+    cardValues.sort(() => Math.random() - 0.5);
+    for (let i = 0; i < size * size; i++) {
+        /*
+            Create Cards
+            before => front side (contains question mark)
+            after => back side (contains actual image);
+            data-card-values is a custom attribute which stores the names of the cards to match later
+          */
+        gameContainer.innerHTML += `
+     <div class="card-container" data-card-value="${cardValues[i].name}">
+        <div class="card-before">?</div>
+        <div class="card-after">
+        <img src="${cardValues[i].image}" class="image"/></div>
+     </div>
+     `;
+    }
+ //Grid
+gameContainer.style.gridTemplateColumns = `repeat(${size},auto)`;
