@@ -32,3 +32,8 @@ body {
     gap: 0.6em;
 }
 
+/* Container for game statistics */
+.stats-container {
+    text-align: right;
+    margin-bottom: 1.2em;
+}
