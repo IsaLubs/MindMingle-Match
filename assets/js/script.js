@@ -25,3 +25,8 @@ const items = [
     { name: "cockatoo", image: "cockatoo.png" },
     { name: "toucan", image: "toucan.png" },
 ];
+
+//Initial Time
+let seconds = 0,
+    minutes = 0;
+
