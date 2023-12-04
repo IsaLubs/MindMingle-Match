@@ -30,3 +30,6 @@ const items = [
 let seconds = 0,
     minutes = 0;
 
+//Initial moves and win count
+let movesCount = 0,
+    winCount = 0;
