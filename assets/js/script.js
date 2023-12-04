@@ -49,3 +49,9 @@ const timeGenerator = () => {
     let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
     timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
 };
+
+//For calculating moves
+const movesCounter = () => {
+    movesCount += 1;
+    moves.innerHTML = `<span>Moves:</span>${movesCount}`;
+};
